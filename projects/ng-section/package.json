@@ -1,0 +1,16 @@
+{
+  "name": "ng-section",
+  "version": "0.0.1",
+  "author": {
+    "name": "Sander van 't Einde",
+    "email": "sandervanteinde@gmail.com",
+    "url": "https://github.com/sandervanteinde/ng-section"
+  },
+  "peerDependencies": {
+    "@angular/common": "^11.0.6",
+    "@angular/core": "^11.0.6"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

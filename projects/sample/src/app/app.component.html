@@ -1,0 +1,12 @@
+<p>Hello world</p>
+
+<p *ngSection="'test'">Hello order 1 from *ngSection</p>
+<p *ngSection="'test'">Hello order 2 from *ngSection</p>
+<p *ngSection="'test'">Hello order 3 from *ngSection</p>
+
+<div>
+  <ng-section-outlet key="test"></ng-section-outlet>
+  <router-outlet></router-outlet>
+</div>
+
+
