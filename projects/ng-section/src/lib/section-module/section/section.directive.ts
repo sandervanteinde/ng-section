@@ -1,10 +1,10 @@
-import { Directive, Input, OnChanges, OnInit, SimpleChange, SimpleChanges, TemplateRef } from '@angular/core';
+import { Directive, Input, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges, TemplateRef } from '@angular/core';
 import { SectionRegistryService } from '../section-registry/section-registry.service';
 
 @Directive({
   selector: 'ng-template[ngSection]'
 })
-export class SectionDirective implements OnInit, OnChanges {
+export class SectionDirective implements OnInit, OnChanges, OnDestroy {
   @Input('ngSection') sectionKey!: string;
   @Input('ngSectionOrder') order?: number;
 
@@ -27,5 +27,9 @@ export class SectionDirective implements OnInit, OnChanges {
         this._sectionRegistry.registerDirective(key.currentValue, this);
       }
     }
-  } 
+  }
+
+  ngOnDestroy(): void {
+    this._sectionRegistry.unregisterDirective(this.sectionKey, this);
+  }
 }

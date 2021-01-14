@@ -1,12 +1,17 @@
 <p>Hello world</p>
 
-<p *ngSection="'test'">Hello order 1 from *ngSection</p>
-<p *ngSection="'test'">Hello order 2 from *ngSection</p>
-<p *ngSection="'test'">Hello order 3 from *ngSection</p>
+<ng-template ngSection="test" [ngSectionOrder]="1.5">
+  HAllo test
+</ng-template>
+<p *ngSection="'test'; order: 3">Hello order 1 from *ngSection</p>
+<p *ngSection="'test'; order: 2">Hello order 2 from *ngSection</p>
+<p *ngSection="'test'; order: 1">Hello order 3 from *ngSection</p>
 
+<a [routerLink]="['/']">Home</a>
+<a [routerLink]="['test']">Test</a>
 <div>
   <ng-section-outlet key="test"></ng-section-outlet>
+  <ng-section-outlet key="test2"></ng-section-outlet>
   <router-outlet></router-outlet>
 </div>
-
 

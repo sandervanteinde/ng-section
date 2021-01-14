@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { SectionDirective } from '../section/section.directive';
 
 @Injectable({
@@ -46,7 +46,8 @@ export class SectionRegistryService {
         const directives = registry.get(key);
         if(!directives) return [];
         return directives;
-      })
+      }),
+      distinctUntilChanged()
     )
   }
 }
